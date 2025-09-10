@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './index.css'
 
 const Empresa = ({
@@ -39,9 +40,9 @@ const Empresa = ({
 const EmpresaVista = ({ empresa, handleDelete }) => (
   <ul>
     {empresa.map((e, idx) => (
-      <li key={idx}>
+      <li key={e.id}>
         {e.titulo} | {e.descripcion} | {e.localidad} | {e.tipocontrato} | {e.compania} | {e.fecha}
-        <button onClick={() => handleDelete(idx)}>Eliminar</button>
+        <button onClick={() => handleDelete(e.id)}>Eliminar</button>
       </li>
     ))}
   </ul>
@@ -55,6 +56,11 @@ const App = () => {
   const [newTipocontrato, setNewTipocontrato] = useState('')
   const [newCompania, setNewCompania] = useState('')
   const [newFecha, setNewFecha] = useState('')
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/empresa')
+      .then(res => setEmpresa(res.data))
+  }, [])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -76,7 +82,8 @@ const App = () => {
       compania: newCompania,
       fecha: newFecha,
     }
-    setEmpresa([...empresa, nuevaEmpresa])
+    axios.post('http://localhost:3001/empresa', nuevaEmpresa)
+      .then(res => setEmpresa([...empresa, res.data]))
     setNewTitulo('')
     setNewDescripcion('')
     setNewLocalidad('')
@@ -85,8 +92,9 @@ const App = () => {
     setNewFecha('')
   }
 
-  const handleDelete = (idx) => {
-    setEmpresa(empresa.filter((_, i) => i !== idx))
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3001/empresa/${id}`)
+      .then(() => setEmpresa(empresa.filter(e => e.id !== id)))
   }
 
   return (
@@ -105,7 +113,6 @@ const App = () => {
 
       <h2>Empresas Agregadas</h2>
       <EmpresaVista empresa={empresa} handleDelete={handleDelete} />
-    
     </div>
   )
 }
