@@ -105,6 +105,7 @@ const App = () => {
 
       <h2>Empresas Agregadas</h2>
       <EmpresaVista empresa={empresa} handleDelete={handleDelete} />
+    
     </div>
   )
 }
