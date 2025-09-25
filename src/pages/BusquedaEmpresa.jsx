@@ -11,11 +11,11 @@ const EmpresaVista = ({ empresa, handleDelete }) => (
   <div className="empresa-list">
     {empresa.map((e, idx) => (
       <div className="empresa-card" key={e.id}>
-        <strong>{e.titulo}</strong>
+        <strong>{e.compania}</strong>
         <p>{e.descripcion}</p>
         <p><b>Localidad:</b> {e.localidad}</p>
         <p><b>Tipo de Contrato:</b> {e.tipocontrato}</p>
-        <p><b>Empresa:</b> {e.compania}</p>
+        <p><b>Titulo del puesto:</b> {e.titulo}</p>
         <p><b>Fecha:</b> {e.fecha}</p>
         <button onClick={() => handleDelete(e.id)}>Eliminar</button>
       </div>

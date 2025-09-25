@@ -16,7 +16,7 @@ const Empresa = ({
 }) => (
   <form className="empresa-form" onSubmit={handleSubmit}>
     <div>
-      <label>Título:</label>
+      <label>Título del puesto:</label>
       <input name="titulo" value={newTitulo} onChange={handleInputChange} required />
     </div>
     <div>
