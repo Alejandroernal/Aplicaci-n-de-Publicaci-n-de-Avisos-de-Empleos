@@ -12,24 +12,30 @@ const Empresa = ({
   handleInputChange,
   handleSubmit,
 }) => (
-  <form onSubmit={handleSubmit}>
+  <form className="empresa-form" onSubmit={handleSubmit}>
     <div>
-      Título: <input name="titulo" value={newTitulo} onChange={handleInputChange} required />
+      <label>Título:</label>
+      <input name="titulo" value={newTitulo} onChange={handleInputChange} required />
     </div>
     <div>
-      Descripción: <input name="descripcion" value={newDescripcion} onChange={handleInputChange} required />
+      <label>Descripción:</label>
+      <input name="descripcion" value={newDescripcion} onChange={handleInputChange} required />
     </div>
     <div>
-      Localidad: <input name="localidad" value={newLocalidad} onChange={handleInputChange} required />
+      <label>Localidad:</label>
+      <input name="localidad" value={newLocalidad} onChange={handleInputChange} required />
     </div>
     <div>
-      Tipo de Contrato: <input name="tipocontrato" value={newTipocontrato} onChange={handleInputChange} required />
+      <label>Tipo de Contrato:</label>
+      <input name="tipocontrato" value={newTipocontrato} onChange={handleInputChange} required />
     </div>
     <div>
-      Compañía: <input name="compania" value={newCompania} onChange={handleInputChange} required />
+      <label>Compañía:</label>
+      <input name="compania" value={newCompania} onChange={handleInputChange} required />
     </div>
     <div>
-      Fecha: <input name="fecha" value={newFecha} onChange={handleInputChange} required />
+      <label>Fecha:</label>
+      <input name="fecha" value={newFecha} onChange={handleInputChange} required />
     </div>
     <div>
       <button type="submit">Agregar</button>
@@ -38,14 +44,19 @@ const Empresa = ({
 )
 
 const EmpresaVista = ({ empresa, handleDelete }) => (
-  <ul>
+  <div className="empresa-list">
     {empresa.map((e, idx) => (
-      <li key={e.id}>
-        {e.titulo} | {e.descripcion} | {e.localidad} | {e.tipocontrato} | {e.compania} | {e.fecha}
+      <div className="empresa-card" key={e.id}>
+        <strong>{e.titulo}</strong>
+        <p>{e.descripcion}</p>
+        <p><b>Localidad:</b> {e.localidad}</p>
+        <p><b>Tipo de Contrato:</b> {e.tipocontrato}</p>
+        <p><b>Compañía:</b> {e.compania}</p>
+        <p><b>Fecha:</b> {e.fecha}</p>
         <button onClick={() => handleDelete(e.id)}>Eliminar</button>
-      </li>
+      </div>
     ))}
-  </ul>
+  </div>
 )
 
 const App = () => {
@@ -58,7 +69,7 @@ const App = () => {
   const [newFecha, setNewFecha] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:3001/empresa')
+    axios.get('http://localhost:3000/empresa')
       .then(res => setEmpresa(res.data))
   }, [])
 
@@ -82,7 +93,7 @@ const App = () => {
       compania: newCompania,
       fecha: newFecha,
     }
-    axios.post('http://localhost:3001/empresa', nuevaEmpresa)
+    axios.post('http://localhost:3000/empresa', nuevaEmpresa)
       .then(res => setEmpresa([...empresa, res.data]))
     setNewTitulo('')
     setNewDescripcion('')
@@ -93,13 +104,13 @@ const App = () => {
   }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3001/empresa/${id}`)
+    axios.delete(`http://localhost:3000/empresa/${id}`)
       .then(() => setEmpresa(empresa.filter(e => e.id !== id)))
   }
 
   return (
     <div>
-      <h3>Agregar Nueva Empresa</h3>
+      <h1>Agregar Nueva Empresa</h1>
       <Empresa
         newTitulo={newTitulo}
         newDescripcion={newDescripcion}
