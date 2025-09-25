@@ -78,3 +78,33 @@ h2{
   color: #000000;
   text-align: center;
 }
+
+.boton-funcional {
+   background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botones-container {
+  display: flex;
+  align-items: center;
+  padding: 2%;
+  margin-left: 3px;
+  gap: 24px; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+gap: 24px;
+  
+}
+
+.input-busqueda {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+}
