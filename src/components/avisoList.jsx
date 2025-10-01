@@ -1,0 +1,1 @@
+//Lista de avisos, recibe props desde ListEmpresas y BusquedaEmpresa

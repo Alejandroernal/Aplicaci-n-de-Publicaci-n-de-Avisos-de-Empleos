@@ -1,0 +1,1 @@
+//Muestra el detalle del aviso seleccionado

@@ -1,3 +1,5 @@
+//Página para listar y agregar empresas
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../index.css'

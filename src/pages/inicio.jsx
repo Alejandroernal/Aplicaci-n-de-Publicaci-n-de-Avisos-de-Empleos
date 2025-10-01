@@ -1,3 +1,4 @@
+//Página de inicio con enlaces a las funcionalidades principales
 import '../index.css'
 import { Link } from "react-router-dom";
 

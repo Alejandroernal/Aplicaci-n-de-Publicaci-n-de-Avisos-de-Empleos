@@ -1,3 +1,5 @@
+//Página para buscar y eliminar empresas
+
 import '../index.css'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';

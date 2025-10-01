@@ -1,3 +1,4 @@
+//define las rutas de la aplicación
 import { Routes, Route, Navigate } from "react-router-dom";
 import ListEmpresas from '../pages/ListEmpresas.jsx'
 import Inicio from '../pages/inicio.jsx'
