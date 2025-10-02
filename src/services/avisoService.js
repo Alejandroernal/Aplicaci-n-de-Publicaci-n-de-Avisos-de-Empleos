@@ -2,7 +2,7 @@
 
 // Funciones para consumir la API de avisos
 import axios from 'axios'
-const API = 'http://localhost:3000/aviso'
+const API = 'http://localhost:3000/avisos'
 
 export const getAvisos = () => axios.get(API)
 export const addAviso = (aviso) => axios.post(API, aviso)
