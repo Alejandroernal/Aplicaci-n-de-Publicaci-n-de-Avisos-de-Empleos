@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Inicio from '../pages/inicio.jsx'
 import ListEmpresas from '../pages/ListEmpresas.jsx'
 import BusquedaEmpresa from '../pages/BusquedaEmpresa.jsx'
-import CrearAviso from '../pages/CrearAviso.jsx'
+import CrearAviso from '../pages/crearAviso.jsx'
 import Avisos from '../pages/Avisos.jsx'
 import AvisoDetail from '../pages/AvisoDetail.jsx'
 
