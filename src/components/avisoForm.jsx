@@ -10,10 +10,11 @@ const AvisoForm = ({ empresas, onAdd }) => {
   const [tipodecontrato, setTipodecontrato] = useState('')
   const [empresa_id, setEmpresaId] = useState('')
   const [fecha, setFecha] = useState('')
+  const [empresa_nombre, setEmpresaNombre] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onAdd({ titulo, descripcion, ubicacion, tipodecontrato, empresa_id, fecha: fecha || new Date().toISOString().slice(0,10) })
+    onAdd({ titulo, descripcion, ubicacion, tipodecontrato, empresa_id, empresa_nombre, fecha: fecha || new Date().toISOString().slice(0,10) })
     setTitulo('')
     setDescripcion('')
     setUbicacion('')
@@ -47,7 +48,7 @@ const AvisoForm = ({ empresas, onAdd }) => {
       </div>
       <div>
         <label>Empresa:</label>
-        <input value={empresa_id} onChange={e => setEmpresaId(e.target.value)} required list="empresas-list" />
+        <input value={empresa_nombre} onChange={e => setEmpresaNombre(e.target.value)} required list="empresas-list" />
       </div>
       <div>
         <label>Fecha:</label>

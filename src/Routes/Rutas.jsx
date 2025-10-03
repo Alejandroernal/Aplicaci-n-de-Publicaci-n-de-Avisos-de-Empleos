@@ -4,7 +4,7 @@ import Inicio from '../pages/inicio.jsx'
 import ListEmpresas from '../pages/ListEmpresas.jsx'
 import BusquedaEmpresa from '../pages/BusquedaEmpresa.jsx'
 import CrearAviso from '../pages/crearAviso.jsx'
-import Avisos from '../pages/Avisos.jsx'
+import Avisos from '../pages/avisos.jsx'
 import AvisoDetail from '../pages/AvisoDetail.jsx'
 
 const Rutas = () => (

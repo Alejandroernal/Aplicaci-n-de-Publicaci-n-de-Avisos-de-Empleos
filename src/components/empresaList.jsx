@@ -5,6 +5,8 @@ const EmpresaList = ({ empresas, onDelete }) => (
       <div className="empresa-card" key={e.empresa_id}>
         <strong>{e.nombre}</strong>
         <p>{e.descripcion}</p>
+        <p>{e.website}</p>
+        <p>{e.email}</p>
         {onDelete && (
           <button onClick={() => onDelete(e.empresa_id)}>Eliminar</button>
         )}
